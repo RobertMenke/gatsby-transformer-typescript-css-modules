@@ -18,6 +18,7 @@ const findCssRules = config => config.module.rules.find(rule => Array.isArray(ru
  * @param rules
  */
 exports.onCreateWebpackConfig = ({ getConfig, stage, actions, loaders, rules }) => {
+    if (stage == 'build-html') return;
     const config = getConfig();
     const cssRules = findCssRules(config);
     const typingLoader = {
