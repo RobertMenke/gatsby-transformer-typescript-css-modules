@@ -37,7 +37,7 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions, loaders, rules }) 
     if (cssRules) {
         cssRules.oneOf.forEach((statement) => {
             const index = statement.use.findIndex(({ loader }) => loader.match(/\/css-loader\//))
-            if (index) {
+            if (index > -1) {
                 statement.use[index] = typingLoader
             }
             //If we didn't find a css-loader we can push the typingLoader onto the use statement
